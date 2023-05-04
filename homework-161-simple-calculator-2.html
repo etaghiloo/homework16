@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <style>
+        .container {
+            width: 300px;
+            margin: 50px;
+        }
+        .holder {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        input {
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            font-size: 20px;
+        }
+        select#mathematical-functions,
+        button#calculate {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid #000;
+        }
+        button#calculate {
+            background-color: #f05a5a;
+        }
+        p#result {
+            width: 278px;
+            height: 40px;
+            line-height: 40px;
+            margin: 0;
+            background-color: #f05a5a4d;
+            border: 1px solid #8f8f9d;
+            margin-bottom: 10px;
+            padding: 0 10px;
+            font-size: 30px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">
+                <h2>Simple Calculator 2</h2>
+            </div>
+            <p id="result"></p>
+            <div class="holder">
+                <input id="first" />
+                <select id="mathematical-functions">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                  </select>
+                <input id="second" />
+                <button id="calculate">=</button>
+            </div>
+        </div>
+        <script>
+            var firstInput = document.getElementById("first");
+            var secondInput = document.getElementById("second");
+            var reElement = document.getElementById("result");
+            var selectInput = document.getElementById("mathematical-functions");
+            var calculate = document.getElementById("calculate");
+            calculate.addEventListener("click", calculator);
+            function calculator() {
+                if (selectInput.value === "+" || "-" || "*" || "/") {
+                    reElement.innerHTML = eval(parseFloat(firstInput.value) + (selectInput.value) + parseFloat(secondInput.value))
+                }
+            }
+        </script>
+    </body>
+</html>
